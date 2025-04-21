@@ -9,7 +9,7 @@ using WIF.Core.Enums;
 
 namespace WIF.Core.Models
 {
-    public class Role : IdentityRole<string>
+    public class Role : IdentityRole
     {
     }
 }

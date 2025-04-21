@@ -1,0 +1,154 @@
+﻿@model WIF.Core.Models.BBWalletImport
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BBWalletImport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Uid" class="control-label"></label>
+                <input asp-for="Uid" class="form-control" />
+                <span asp-validation-for="Uid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserUid" class="control-label"></label>
+                <input asp-for="UserUid" class="form-control" />
+                <span asp-validation-for="UserUid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account" class="control-label"></label>
+                <input asp-for="Account" class="form-control" />
+                <span asp-validation-for="Account" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Currency" class="control-label"></label>
+                <input asp-for="Currency" class="form-control" />
+                <span asp-validation-for="Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefCurrencyAmount" class="control-label"></label>
+                <input asp-for="RefCurrencyAmount" class="form-control" />
+                <span asp-validation-for="RefCurrencyAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentType" class="control-label"></label>
+                <input asp-for="PaymentType" class="form-control" />
+                <span asp-validation-for="PaymentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentTypeLocal" class="control-label"></label>
+                <input asp-for="PaymentTypeLocal" class="form-control" />
+                <span asp-validation-for="PaymentTypeLocal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GpsLatitude" class="control-label"></label>
+                <input asp-for="GpsLatitude" class="form-control" />
+                <span asp-validation-for="GpsLatitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GpsLongitude" class="control-label"></label>
+                <input asp-for="GpsLongitude" class="form-control" />
+                <span asp-validation-for="GpsLongitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GpsAccuracyInMeters" class="control-label"></label>
+                <input asp-for="GpsAccuracyInMeters" class="form-control" />
+                <span asp-validation-for="GpsAccuracyInMeters" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WarrantyInMonth" class="control-label"></label>
+                <input asp-for="WarrantyInMonth" class="form-control" />
+                <span asp-validation-for="WarrantyInMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer" class="control-label"></label>
+                <input asp-for="Transfer" class="form-control" />
+                <span asp-validation-for="Transfer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Payee" class="control-label"></label>
+                <input asp-for="Payee" class="form-control" />
+                <span asp-validation-for="Payee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Labels" class="control-label"></label>
+                <input asp-for="Labels" class="form-control" />
+                <span asp-validation-for="Labels" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnvelopeId" class="control-label"></label>
+                <input asp-for="EnvelopeId" class="form-control" />
+                <span asp-validation-for="EnvelopeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomCategory" class="control-label"></label>
+                <input asp-for="CustomCategory" class="form-control" />
+                <span asp-validation-for="CustomCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedByUserUid" class="control-label"></label>
+                <input asp-for="CreatedByUserUid" class="form-control" />
+                <span asp-validation-for="CreatedByUserUid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedAt" class="control-label"></label>
+                <input asp-for="UpdatedAt" class="form-control" />
+                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedByUserUid" class="control-label"></label>
+                <input asp-for="UpdatedByUserUid" class="form-control" />
+                <span asp-validation-for="UpdatedByUserUid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

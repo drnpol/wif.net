@@ -7,8 +7,6 @@ namespace WIF.Core.Data
 {
     public partial class ApplicationDbContext : IdentityDbContext<User, Role, string>
     {
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<BBWalletImport> BBWalletImports { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)

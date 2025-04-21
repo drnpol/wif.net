@@ -1,0 +1,179 @@
+﻿@model IEnumerable<WIF.Core.Models.BBWalletImport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Uid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserUid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefCurrencyAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentTypeLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GpsLatitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GpsLongitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GpsAccuracyInMeters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarrantyInMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transfer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Labels)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnvelopeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedByUserUid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedByUserUid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserUid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefCurrencyAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentTypeLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GpsLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GpsLongitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GpsAccuracyInMeters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarrantyInMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transfer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Labels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnvelopeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUserUid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedByUserUid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

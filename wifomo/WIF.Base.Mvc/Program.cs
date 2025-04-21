@@ -23,7 +23,7 @@ namespace WIF.Base.Mvc
             );
 
             builder.Services.AddIdentityCore<User>()
-            .AddRoles<IdentityRole>()
+            .AddRoles<Role>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();
