@@ -24,7 +24,8 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Services\" />
+    <Folder Include="Features\Commands\BBWalletImport\" />
+    <Folder Include="Features\Requests\BBWalletImport\" />
   </ItemGroup>
 
 </Project>

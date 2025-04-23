@@ -2,21 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WIF.Core.Data;
 using WIF.Core.Models;
+using WIF.Core.Services;
 
 namespace WIF.Base.Mvc.Controllers
 {
+    [Authorize]
     public class ImportController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly BBWalletImportService _bbWalletImportService;
 
-        public ImportController(ApplicationDbContext context)
+        public ImportController(
+            ApplicationDbContext context,
+            BBWalletImportService bbWalletImportService
+        )
         {
             _context = context;
+            _bbWalletImportService = bbWalletImportService;
         }
 
         // GET: Import
@@ -25,6 +33,12 @@ namespace WIF.Base.Mvc.Controllers
               return _context.BBWalletImports != null ? 
                           View(await _context.BBWalletImports.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.BBWalletImports'  is null.");
+        }
+
+        public async Task<IActionResult> GetBBWalletImportRecords(string kendoListRequestString)
+        {
+            var response = await this._bbWalletImportService.GetBBWalletImportRecords(kendoListRequestString, false);
+            return Ok(response);
         }
 
         // GET: Import/Details/5

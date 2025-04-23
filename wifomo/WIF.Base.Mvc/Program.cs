@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using WIF.Core.Data;
 using WIF.Core.Models;
+using WIF.Core.Repositories;
+using WIF.Core.Services;
 
 namespace WIF.Base.Mvc
 {
@@ -36,6 +38,8 @@ namespace WIF.Base.Mvc
             .AddIdentityCookies(o => { });
 
             builder.Services.AddAuthorization();
+            builder.Services.AddScoped<UnitOfWork>();
+            builder.Services.AddScoped<BBWalletImportService>();
 
             var app = builder.Build();
 
