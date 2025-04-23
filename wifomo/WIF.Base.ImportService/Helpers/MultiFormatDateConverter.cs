@@ -12,8 +12,15 @@ namespace WIF.Base.ImportService.Helpers
 {
     public class MultiFormatDateConverter : ITypeConverter
     {
-        private readonly string[] _dateFormats = { "MM/dd/yyyy H:mm", "dd/MM/yyyy H:mm", "yyyy-MM-dd HH:mm:ss" };
+        private readonly string[] _dateFormats;
 
+        public MultiFormatDateConverter() { 
+            _dateFormats =  new[] { "MM/dd/yyyy H:mm", "dd/MM/yyyy H:mm", "yyyy-MM-dd HH:mm:ss" };
+        }
+        public MultiFormatDateConverter(string[] formats)
+        {
+            _dateFormats = formats;
+        } 
         public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
         {
             if (string.IsNullOrWhiteSpace(text))
