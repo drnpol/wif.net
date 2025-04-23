@@ -2,9 +2,9 @@
   "name": "frontend",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "scripts": {
+        "sass": "npx sass ./scss/bootstrap.scss ../wwwroot/css/bootstrap.css && npx sass ./scss/application.scss ../wwwroot/css/application.css"
+    },
   "author": "",
   "license": "ISC",
   "description": "",

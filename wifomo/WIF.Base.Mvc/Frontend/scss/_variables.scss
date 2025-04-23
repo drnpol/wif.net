@@ -1,0 +1,28 @@
+@import "colors";
+
+// scss-docs-start grid-breakpoints
+$app-breakpoint-xs: 0;
+$app-breakpoint-sm: 576px;
+$app-breakpoint-md: 768px;
+$app-breakpoint-lg: 992px;
+$app-breakpoint-xl: 1200px;
+$app-breakpoint-xxl: 1400px;
+
+$app-grid-breakpoints: (
+  xs: $app-breakpoint-xs,
+  sm: $app-breakpoint-sm,
+  md: $app-breakpoint-md,
+  lg: $app-breakpoint-lg,
+  xl: $app-breakpoint-xl,
+  xxl: $app-breakpoint-xxl
+);
+
+
+//Component
+$topbar-height: 75px;
+$navbar-height: 75px;
+$sidebar-width-expanded: 250px;
+$sidebar-width-mini: 75px;
+$footer-height: 75px;
+
+$text-sm: 0.85rem;
