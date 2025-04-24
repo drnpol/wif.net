@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace WIF.Core.Helpers
+namespace WIF.Core.Features.Kendo.Requests
 {
     /// <summary>
     /// It's used to filter and for server paging

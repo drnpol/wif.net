@@ -15,7 +15,7 @@ using WIF.Core.Services;
 namespace WIF.Base.Mvc.Controllers.Import
 {
     [Authorize]
-    [Route("import/budgetbaker")]
+    [Route("Import/BudgetBaker")]
     public class BudgetBakerController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -36,6 +36,26 @@ namespace WIF.Base.Mvc.Controllers.Import
             return _context.BBWalletImports != null ?
                           View("/Views/Import/BudgetBaker/Index.cshtml", await _context.BBWalletImports.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.BBWalletImports'  is null.");
+        }
+        
+        [HttpGet("Records")]
+        public async Task<IActionResult> Records()
+        {
+            return View("/Views/Import/BudgetBaker/Records.cshtml");
+        }
+
+        [HttpGet("GetRecords")]
+        public async Task<IActionResult> GetRecords(string kendoListRequestString)
+        {
+            try
+            {
+                var response = await this._bbWalletImportService.GetBBWalletImportRecords(kendoListRequestString, true);
+                return Ok(response);
+            }catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+            
         }
     }
 }

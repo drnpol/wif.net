@@ -4,19 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    <link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/application.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Core Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Kendo UI -->
-    <script src="/Scripts/kendo/2021.1.330/jquery.min.js"></script>
-    <script src="/Scripts/kendo/2021.1.330/kendo.all.min.js"></script>
-    <script src="/Scripts/kendo/2021.1.330/jszip.min.js"></script>
+    <script src="~/lib/kendoui.for.jquery.2025.1.227.trial/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="~/lib/kendoui.for.jquery.2025.1.227.trial/styles/default-main.css" />
 
-    <link rel="stylesheet" href="/Content/kendo/2021.1.330/kendo.common.min.css" />
-    <link rel="stylesheet" href="/Content/kendo/2021.1.330/kendo.default-v2.min.css" />
+    <!-- Application Stuff-->
+    <link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/application.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -47,7 +48,7 @@
             </main>
         </div>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

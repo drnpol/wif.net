@@ -23,9 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Features\Commands\BBWalletImport\" />
-    <Folder Include="Features\Requests\BBWalletImport\" />
+    <Folder Include="Features\BBWalletImport\Handlers\" />
+    <Folder Include="Features\BBWalletImport\Requests\" />
+    <Folder Include="Features\Datatables\Handlers\" />
+    <Folder Include="Features\Kendo\Handlers\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>
