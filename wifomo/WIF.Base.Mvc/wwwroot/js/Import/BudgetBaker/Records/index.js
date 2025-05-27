@@ -3,7 +3,7 @@ $(document).ready(function () {
     var dataSourceOverviewGrid = new kendo.data.DataSource({
         transport: {
             read: {
-                url: "/Import/BudgetBaker/GetRecords"
+                url: "/api/import/budgetbaker/getRecords"
             },
             parameterMap: function (data, operation) {
                 if (operation == "read") {
@@ -66,9 +66,9 @@ $(document).ready(function () {
             extra: false,
             operators: {
                 string: {
-                    contains: "Contains",
-                    eq: "Equal",
-                    neq: "Not Equal"
+                    contains: "contains",
+                    eq: "eq",
+                    neq: "neq"
                 }
             }
         },
@@ -107,7 +107,7 @@ $(document).ready(function () {
                 template: "<span class='text-small'>#: category #</span>",
             },
             {
-                field: "Currency",
+                field: "currency",
                 title: "Currency",
                 template: "<span class='text-small'>#: currency #</span>",
             },

@@ -1,6 +1,7 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using System.ComponentModel;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -15,7 +16,7 @@ using WIF.Core.Services;
 namespace WIF.Base.Mvc.Controllers.Import
 {
     [Authorize]
-    [Route("Import/BudgetBaker")]
+    [Route("import/budgetbaker")]
     public class BudgetBakerController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -38,24 +39,12 @@ namespace WIF.Base.Mvc.Controllers.Import
                           Problem("Entity set 'ApplicationDbContext.BBWalletImports'  is null.");
         }
         
-        [HttpGet("Records")]
+        [HttpGet("records")]
         public async Task<IActionResult> Records()
         {
             return View("/Views/Import/BudgetBaker/Records.cshtml");
         }
 
-        [HttpGet("GetRecords")]
-        public async Task<IActionResult> GetRecords(string kendoListRequestString)
-        {
-            try
-            {
-                var response = await this._bbWalletImportService.GetBBWalletImportRecords(kendoListRequestString, true);
-                return Ok(response);
-            }catch(Exception e)
-            {
-                return BadRequest(e);
-            }
-            
-        }
+        
     }
 }

@@ -35,6 +35,7 @@ namespace WIF.Core.Features.Kendo.Requests
         public int Skip { get; set; }
         public int Take { get; set; }
     }
+
     //public enum KendoListFilterType
     //{
     //    Name = 0,

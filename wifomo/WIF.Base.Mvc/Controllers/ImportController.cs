@@ -37,7 +37,7 @@ namespace WIF.Base.Mvc.Controllers
 
         public async Task<IActionResult> GetBBWalletImportRecords(string kendoListRequestString)
         {
-            var response = await this._bbWalletImportService.GetBBWalletImportRecords(kendoListRequestString, false);
+            var response = await this._bbWalletImportService.GetBBWalletImportRecords(kendoListRequestString);
             return Ok(response);
         }
 

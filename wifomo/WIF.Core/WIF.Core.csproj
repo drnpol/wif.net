@@ -27,7 +27,6 @@
     <Folder Include="Features\BBWalletImport\Requests\" />
     <Folder Include="Features\Datatables\Handlers\" />
     <Folder Include="Features\Kendo\Handlers\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using WIF.Core;
 using WIF.Core.Data;
 using WIF.Core.Models;
 using WIF.Core.Repositories;
@@ -40,6 +41,8 @@ namespace WIF.Base.Mvc
             builder.Services.AddAuthorization();
             builder.Services.AddScoped<UnitOfWork>();
             builder.Services.AddScoped<BBWalletImportService>();
+
+            builder.Services.AddSingleton<AppSettings>();
 
             var app = builder.Build();
 
