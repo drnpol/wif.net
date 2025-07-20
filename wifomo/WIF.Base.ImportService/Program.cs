@@ -50,7 +50,8 @@ namespace WIF.Base.ImportService
 
             // Create DB Context
             DbContextOptionsBuilder<ApplicationDbContext> optionsBuilder = new();
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            //optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseNpgsql(config.GetConnectionString("DefaultConnection"));
 
             using var dbContext = new ApplicationDbContext(optionsBuilder.Options);
 
@@ -99,7 +100,7 @@ namespace WIF.Base.ImportService
                         if (exists)
                         {
                             skipped++;
-                            logger.LogInformation($@"Row: Account={row.Account},Note={row.Note}, Date={row.Date.ToString()} already exists in the table.");
+                            logger.LogWarning($@"Row: Account={row.Account},Note={row.Note}, Date={row.Date.ToString()} already exists in the table.");
                             continue;
                         }
 

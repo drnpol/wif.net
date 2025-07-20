@@ -32,12 +32,14 @@ namespace WIF.Core.Data
                 entity.Property(e => e.Category).HasColumnName("category");
                 entity.Property(e => e.CreatedAt)
                     .HasDefaultValueSql("GETDATE()") // Replaces PostgreSQL's now()
+                    .HasDefaultValueSql("now()")
                     .HasColumnName("created_at");
                 entity.Property(e => e.CreatedByUserUid).HasColumnName("created_by_user_uid");
                 entity.Property(e => e.Currency).HasColumnName("currency");
                 entity.Property(e => e.CustomCategory).HasColumnName("custom_category");
                 entity.Property(e => e.Date)
-                    .HasColumnType("datetime2") // SQL Server equivalent for timestamp
+                    //.HasColumnType("datetime2") // SQL Server equivalent for timestamp
+                    .HasColumnType("timestamp")
                     .HasColumnName("date");
                 entity.Property(e => e.EnvelopeId).HasColumnName("envelope_id");
                 entity.Property(e => e.GpsAccuracyInMeters).HasColumnName("gps_accuracy_in_meters");
@@ -52,7 +54,8 @@ namespace WIF.Core.Data
                 entity.Property(e => e.Transfer).HasColumnName("transfer");
                 entity.Property(e => e.Type).HasColumnName("type");
                 entity.Property(e => e.Uid)
-                    .HasDefaultValueSql("NEWID()") // Replaces PostgreSQL's gen_random_uuid()
+                    //.HasDefaultValueSql("NEWID()") // Replaces PostgreSQL's gen_random_uuid()
+                    .HasDefaultValueSql("gen_random_uuid()")
                     .HasColumnName("uid");
                 entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
                 entity.Property(e => e.UpdatedByUserUid).HasColumnName("updated_by_user_uid");

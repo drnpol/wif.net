@@ -20,6 +20,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.18" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <Folder Include="Features\BBWalletImport\Requests\" />
     <Folder Include="Features\Datatables\Handlers\" />
     <Folder Include="Features\Kendo\Handlers\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

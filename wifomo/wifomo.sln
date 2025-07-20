@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.Application", "WIF.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.Base.ImportService", "WIF.Base.ImportService\WIF.Base.ImportService.csproj", "{2000D7FD-19E9-4E4A-B696-314D4810E249}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{44F98B0E-9EC0-4835-A702-F89BA3BEA494}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

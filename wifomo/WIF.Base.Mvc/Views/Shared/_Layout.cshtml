@@ -20,18 +20,18 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="z-index: 998">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">wifomo</a>
+    <header class="navbar navbar-primary sticky-top bg-primary flex-md-nowrap p-0 shadow" style="z-index: 998">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">wif</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        @* <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> *@
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <button class="nav-link px-3" href="#">Sign out</button>
+                            <button class="nav-link px-3" href="#signout">Sign out</button>
                             @* <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button> *@
                         </li>
                     </ul>

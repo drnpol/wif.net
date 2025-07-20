@@ -34,7 +34,6 @@ namespace WIF.Base.Mvc.Controllers.API
             {
                 return BadRequest(e);
             }
-
         }
     }
 }

@@ -31,7 +31,7 @@ namespace WIF.Base.Mvc.Controllers.Import
             _bbWalletImportService = bbWalletImportService;
         }
 
-        [HttpGet]
+        //[HttpGet]
         public async Task<IActionResult> Index()
         {
             return _context.BBWalletImports != null ?
@@ -44,7 +44,9 @@ namespace WIF.Base.Mvc.Controllers.Import
         {
             return View("/Views/Import/BudgetBaker/Records.cshtml");
         }
-
-        
+        public async Task<IActionResult> Upload()
+        {
+            return View("/Views/Import/BudgetBaker/Records.cshtml");
+        }
     }
 }
