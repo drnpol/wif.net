@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using WIF.Core.Models;
 
 namespace WIF.Core.Data
@@ -8,6 +9,8 @@ namespace WIF.Core.Data
     public partial class ApplicationDbContext : IdentityDbContext<User, Role, string>
     {
         public virtual DbSet<BBWalletImport> BBWalletImports { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<AccountType> AccountTypes { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -63,6 +66,39 @@ namespace WIF.Core.Data
                 entity.Property(e => e.WarrantyInMonth).HasColumnName("warranty_in_month");
 
                 // End of Application / Entity Tables
+            });
+
+            modelBuilder.Entity<AccountType>(entity =>
+            {
+                entity.ToTable("port_lu_account_type");
+                entity.HasKey(e => e.Id).HasName("PK_port_lu_account_type");
+                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Name).HasColumnName("name");
+                entity.Property(e => e.Alias).HasColumnName("alias");
+                entity.Property(e => e.Description).HasColumnName("description");
+            });
+
+            modelBuilder.Entity<Account>(entity =>
+            {
+                entity.ToTable("port_account");
+                entity.HasKey(e => e.Uid).HasName("PK_port_account");
+                entity.Property(e => e.Uid)
+                    .HasDefaultValueSql("gen_random_uuid()")
+                    .HasColumnName("uid");
+                entity.Property(e => e.UserUid).HasColumnName("user_uid");
+                entity.Property(e => e.TypeId).HasColumnName("type_id");
+                entity.Property(e => e.Name).HasColumnName("name");
+                entity.Property(e => e.AccountNo).HasColumnName("account_no");
+                entity.Property(e => e.Description).HasColumnName("description");
+                entity.Property(e => e.CreatedAt).HasColumnName("created_at").HasDefaultValueSql("now()");
+                entity.Property(e => e.CreatedByUserUid).HasColumnName("created_by_user_uid");
+                entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+                entity.Property(e => e.UpdatedByUserUid).HasColumnName("updated_by_user_uid");
+
+                entity.HasOne(e => e.AccountType)
+                    .WithMany()
+                    .HasForeignKey(e => e.TypeId)
+                    .HasConstraintName("FK_account_type");
             });
         }
     }

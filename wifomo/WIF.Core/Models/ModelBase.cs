@@ -12,6 +12,6 @@ namespace WIF.Core.Models
         public DateTime CreatedAt { get; set; }
         public Guid CreatedByUserUid {get; set; }
         public DateTime UpdatedAt { get; set; }
-        public Guid? UpdatedByUserUid { get; set; };
+        public Guid? UpdatedByUserUid { get; set; }
     }
 }

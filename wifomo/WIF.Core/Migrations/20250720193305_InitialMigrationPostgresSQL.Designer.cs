@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WIF.Core.Data;
@@ -11,9 +12,11 @@ using WIF.Core.Data;
 namespace WIF.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250720193305_InitialMigrationPostgresSQL")]
+    partial class InitialMigrationPostgresSQL
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,92 +129,6 @@ namespace WIF.Core.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("WIF.Core.Models.Account", b =>
-                {
-                    b.Property<Guid>("Uid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("uid")
-                        .HasDefaultValueSql("gen_random_uuid()");
-
-                    b.Property<string>("AccountNo")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("account_no");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at")
-                        .HasDefaultValueSql("now()");
-
-                    b.Property<Guid>("CreatedByUserUid")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by_user_uid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text")
-                        .HasColumnName("description");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
-
-                    b.Property<int>("TypeId")
-                        .HasColumnType("integer")
-                        .HasColumnName("type_id");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedByUserUid")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by_user_uid");
-
-                    b.Property<Guid>("UserUid")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_uid");
-
-                    b.HasKey("Uid")
-                        .HasName("PK_port_account");
-
-                    b.HasIndex("TypeId");
-
-                    b.ToTable("port_account", (string)null);
-                });
-
-            modelBuilder.Entity("WIF.Core.Models.AccountType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("alias");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("description");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
-
-                    b.HasKey("Id")
-                        .HasName("PK_port_lu_account_type");
-
-                    b.ToTable("port_lu_account_type", (string)null);
                 });
 
             modelBuilder.Entity("WIF.Core.Models.BBWalletImport", b =>
@@ -472,18 +389,6 @@ namespace WIF.Core.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WIF.Core.Models.Account", b =>
-                {
-                    b.HasOne("WIF.Core.Models.AccountType", "AccountType")
-                        .WithMany()
-                        .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_account_type");
-
-                    b.Navigation("AccountType");
                 });
 #pragma warning restore 612, 618
         }

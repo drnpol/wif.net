@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Identity.Client;
 
 namespace WIF.Core.Models
 {
     public class Account: ModelBase
     {
         public Guid UserUid { get; set; }
-        public int AccountType { get; set; }// int or id?
-
+        public int TypeId { get; set; }// int or id?
+        public virtual AccountType AccountType { get; set; }
         public string Name { get; set; } = string.Empty;
-
-        public string AccountNumber { get; set; } = string.Empty;
-
+        public string AccountNo { get; set; } = string.Empty;
         public string? Description { get; set; }
     }
 }

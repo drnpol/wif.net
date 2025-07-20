@@ -14,9 +14,12 @@ namespace WIF.Core.Models
         public string Currency { get; set; } = string.Empty;
         public decimal Amount { get; set; }
         public decimal? RefCurrencyAmount { get; set; }
-        public int Type { get; set; } //int or id?
-        public int Status { get; set; } //int or id?
-        public int PaymentType { get; set; } //int or id?
+        public int TypeId { get; set; } //int or id?
+        public virtual RecordType RecordType { get; set; }
+        public int StatusId { get; set; } //int or id?
+        public virtual RecordStatus RecordStatus { get; set; }
+        public int PaymentTypeId { get; set; } //int or id?
+        public virtual PaymentType PaymentType {get; set;}
         //public string? PaymentTypeLocal { get; set; }
         public string? Note { get; set; }
         public DateTime Date { get; set; }
