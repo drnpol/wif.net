@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WIF.Core.Helpers
+namespace WIF.PortfolioManager.Application.Helpers
 {
     public class Filter<T>
     {

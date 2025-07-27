@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CsvHelper.Configuration;
 using WIF.Base.ImportService.Helpers;
-using WIF.Core.Models;
+using WIF.PortfolioManager.Domain.Models;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace WIF.Base.ImportService.Mapper

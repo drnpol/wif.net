@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WIF.Core.Services
+namespace WIF.PortfolioManager.Application.Services
 {
     class AccountService
     {

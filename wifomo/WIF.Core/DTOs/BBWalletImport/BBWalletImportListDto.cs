@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WIF.Core.DTOs.BBWalletImport
+namespace WIF.PortfolioManager.Application.DTOs.BBWalletImport
 {
     public class BBWalletImportListDto
     {

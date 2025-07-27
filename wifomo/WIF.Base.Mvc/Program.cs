@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using WIF.Core;
-using WIF.Core.Data;
-using WIF.Core.Models;
-using WIF.Core.Repositories;
-using WIF.Core.Services;
+using WIF.PortfolioManager.Domain.Models;
+using WIF.PortfolioManager.Persistence;
+using WIF.PortfolioManager.Persistence.Repositories;
+using WIF.PortfolioManager.Application.Services;
+using WIF.PortfolioManager.Identity.Models;
+using WIF.PortfolioManager.Application;
 
 namespace WIF.Base.Mvc
 {
@@ -26,8 +27,8 @@ namespace WIF.Base.Mvc
             );
 
             builder.Services
-            .AddIdentityCore<User>()
-            .AddRoles<Role>()
+            .AddIdentityCore<ApplicationUser>()
+            .AddRoles<ApplicationRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();

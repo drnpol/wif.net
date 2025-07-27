@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using WIF.Core.Features.Kendo.Requests;
-using WIF.Core.Helpers;
+using WIF.PortfolioManager.Application.Features.Kendo.Requests;
+using WIF.PortfolioManager.Application.Helpers;
 
-namespace WIF.Core.Extensions
+namespace WIF.PortfolioManager.Application.Extensions
 {
     public static class FilterExtension
     {

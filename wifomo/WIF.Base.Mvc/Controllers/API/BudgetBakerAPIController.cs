@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WIF.Core.Data;
-using WIF.Core.Services;
+using WIF.PortfolioManager.Persistence;
+using WIF.PortfolioManager.Application.Services;
 
 namespace WIF.Base.Mvc.Controllers.API
 {

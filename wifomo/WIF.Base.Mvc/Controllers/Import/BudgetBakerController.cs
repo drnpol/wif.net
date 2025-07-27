@@ -9,9 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WIF.Base.Mvc.Models.AccountViewModels;
-using WIF.Core.Data;
-using WIF.Core.Models;
-using WIF.Core.Services;
+using WIF.PortfolioManager.Persistence;
+using WIF.PortfolioManager.Application.Services;
 
 namespace WIF.Base.Mvc.Controllers.Import
 {

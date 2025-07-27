@@ -5,20 +5,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WIF.Base.Mvc.Models.ManageViewModels;
-using WIF.Core.Models;
+using WIF.PortfolioManager.Domain.Models;
+using WIF.PortfolioManager.Persistence;
+using WIF.PortfolioManager.Application.Services;
+using WIF.PortfolioManager.Identity.Models;
 
 namespace WIF.Base.Mvc.Controllers {
 
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
 
         public ManageController(
-        UserManager<User> userManager,
-        SignInManager<User> signInManager,
+        UserManager<ApplicationUser> userManager,
+        SignInManager<ApplicationUser> signInManager,
         ILoggerFactory loggerFactory)
         {
             _userManager = userManager;
@@ -363,7 +366,7 @@ namespace WIF.Base.Mvc.Controllers {
             Error
         }
 
-        private Task<User> GetCurrentUserAsync()
+        private Task<ApplicationUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }

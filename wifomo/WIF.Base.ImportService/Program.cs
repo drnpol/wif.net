@@ -5,11 +5,11 @@ using System.Text.Json;
 using System.Collections.Generic;
 using WIF.Base.ImportService.Models;
 using Microsoft.Extensions.Logging;
-using WIF.Core.Models;
+using WIF.PortfolioManager.Domain.Models;
+using WIF.PortfolioManager.Persistence;
 using WIF.Base.ImportService.Mapper;
 using WIF.Base.ImportService.Extensions;
 using Microsoft.EntityFrameworkCore;
-using WIF.Core.Data;
 using Microsoft.IdentityModel.Tokens;
 
 namespace WIF.Base.ImportService

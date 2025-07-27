@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WIF.Core\WIF.Core.csproj" />
+    <ProjectReference Include="..\WIF.Core\WIF.PortfolioManager.Application.csproj" />
+    <ProjectReference Include="..\WIF.PortfolioManager.Domain\WIF.PortfolioManager.Domain.csproj" />
+    <ProjectReference Include="..\WIF.PortfolioManager.Identity\WIF.PortfolioManager.Identity.csproj" />
+    <ProjectReference Include="..\WIF.PortfolioManager.Persistence\WIF.PortfolioManager.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

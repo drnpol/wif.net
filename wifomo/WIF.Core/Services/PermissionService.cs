@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WIF.Core.Repositories;
+using WIF.PortfolioManager.Persistence.Repositories;
 
-namespace WIF.Core.Services
+namespace WIF.PortfolioManager.Application.Services
 {
     public class PermissionService: ServiceBase
     {

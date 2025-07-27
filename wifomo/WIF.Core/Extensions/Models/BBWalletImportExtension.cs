@@ -4,13 +4,12 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Azure;
-using WIF.Core.DTOs.BBWalletImport;
-using WIF.Core.Helpers;
-using WIF.Core.Models;
+using WIF.PortfolioManager.Application.DTOs.BBWalletImport;
+using WIF.PortfolioManager.Application.Helpers;
+using WIF.PortfolioManager.Domain.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace WIF.Core.Extensions.Models
+namespace WIF.PortfolioManager.Application.Extensions.Models
 {
     internal static class BBWalletImportExtension
     {

@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using WIF.Base.Mvc.Models
 
-@inject SignInManager<WIF.Core.Models.User> SignInManager
-@inject UserManager<WIF.Core.Models.User> UserManager
+@inject SignInManager<WIF.PortfolioManager.Identity.Models.ApplicationUser> SignInManager
+@inject UserManager<WIF.PortfolioManager.Identity.Models.ApplicationUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

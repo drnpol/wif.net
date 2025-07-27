@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using WIF.Core.Models;
+using WIF.PortfolioManager.Domain.Models;
 
 namespace WIF.Base.ImportService.Extensions
 {

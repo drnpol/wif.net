@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
-namespace WIF.Core
+namespace WIF.PortfolioManager.Application
 {
     public class AppSettings
     {

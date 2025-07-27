@@ -7,15 +7,16 @@ using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
-using Microsoft.Identity.Client;
-using WIF.Core.DTOs.BBWalletImport;
-using WIF.Core.Extensions.Models;
-using WIF.Core.Features.Kendo.Requests;
-using WIF.Core.Models;
-using WIF.Core.Repositories;
+using WIF.PortfolioManager.Application.Extensions;
+using WIF.PortfolioManager.Application.Extensions.Models;
+using WIF.PortfolioManager.Application.Features.Kendo.Requests;
+using WIF.PortfolioManager.Application.DTOs.BBWalletImport;
+using WIF.PortfolioManager.Persistence.Repositories;
+using WIF.PortfolioManager.Domain.Models;
+using WIF.PortfolioManager.Persistence;
+using Microsoft.EntityFrameworkCore;
 
-namespace WIF.Core.Services
+namespace WIF.PortfolioManager.Application.Services
 {
 
     public class BBWalletImportService : ServiceBase
@@ -29,6 +30,39 @@ namespace WIF.Core.Services
         {
             _appSettings = appSettings;
             _unitOfWork = unitOfWork;
+        }
+        public Task<List<BBWalletImport>> GetMany(KendoListRequest kendoListRequest)
+        {
+            List<BBWalletImport> result;
+            try
+            {
+                var queryable = this._unitOfWork.BBWalletImportRepository.DbContext.BBWalletImports
+                    .Skip(kendoListRequest.Paging.Skip)
+                    .Take(kendoListRequest.Paging.Take);
+
+
+                queryable = queryable.ApplyFilters(kendoListRequest.Filter);
+                queryable = queryable.OrderByDescending(x => x.Date);
+
+                return queryable.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // log the exception
+                throw ex;
+            }
+        }
+        public Task<int> Count(KendoListRequest kendoListRequest)
+        {
+            try
+            {
+                return this._unitOfWork.BBWalletImportRepository.DbContext.BBWalletImports.ApplyFilters(kendoListRequest.Filter).CountAsync();
+            }
+            catch (Exception ex)
+            {
+                // log the exception
+                throw ex;
+            }
         }
 
         public async Task<KendoListResponse<BBWalletImportListDto>> GetBBWalletImportRecords(string kendoListRequestString)
@@ -64,7 +98,7 @@ namespace WIF.Core.Services
             //    $"FETCH NEXT {kendoListRequest.Paging.Take} " +
             //    $"ROWS ONLY"
             //);
-            return await _unitOfWork.BBWalletImportRepository.GetMany(kendoListRequest);
+            return await this.GetMany(kendoListRequest);
         }
         public async Task<int> GetTotalCount()
         {
@@ -72,73 +106,11 @@ namespace WIF.Core.Services
         }
         public async Task<int> GetTotalCount(KendoListRequest kendoListRequest)
         {
-            return await _unitOfWork.BBWalletImportRepository.Count(kendoListRequest);
+            return await this.Count(kendoListRequest);
         }
         public Task<int> GetTotalCount(ClaimsPrincipal identity)
         {
             return null;
-        }
-        /**
-         * @TODO - currently not working, but has to be done for FULL CUSTOM QUERIES
-         */
-        public async Task<List<BBWalletImport>> ExecuteSQLQuery(string sqlCommand)
-        {
-            SqlConnection conn = new SqlConnection(this._appSettings.ConnectionString);
-
-            conn.Open();
-
-            List<BBWalletImport> records = new();
-            SqlCommand command = new(sqlCommand, conn);
-
-            using SqlDataReader dataReader = command.ExecuteReader();
-            if (dataReader.HasRows)
-            {
-                DataTable dt = new();
-                dt.Load(dataReader);
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    BBWalletImport record = new();
-                    
-                    record.Id = int.Parse(row["id"].ToString());
-                    record.Uid = Guid.Parse(row["uid"].ToString());
-                    record.UserUid = Guid.Parse(row["user_uid"].ToString());
-                    record.Account = row["account"]?.ToString();
-                    record.Category = row["category"]?.ToString();
-                    record.Currency = row["currency"]?.ToString();
-                    record.Amount = double.Parse(row["amount"].ToString());
-                    record.RefCurrencyAmount = double.Parse(row["ref_currency_amount"].ToString());
-                    record.Type = row["type"]?.ToString();
-                    record.PaymentType = row["payment_type"]?.ToString();
-                    record.PaymentTypeLocal = row["payment_type_local"]?.ToString();
-                    record.Note = row["note"]?.ToString();
-                    record.Date = DateTime.Parse(row["date"].ToString());
-                    record.GpsLatitude = float.Parse(row["gps_latitude"].ToString());
-                    record.GpsLongitude = float.Parse(row["gps_longitude"].ToString());
-                    record.GpsAccuracyInMeters = float.Parse(row["gps_accuracy_in_meters"].ToString());
-                    record.WarrantyInMonth = float.Parse(row["float"].ToString());
-                    record.Transfer = bool.Parse(row["transfer"].ToString());
-                    record.Payee = row["payee"]?.ToString();
-                    record.Labels = row["labels"]?.ToString();
-                    record.EnvelopeId = long.Parse(row["envelope_id"].ToString());
-                    record.CustomCategory = bool.Parse(row["custom_category"].ToString());
-                    record.CreatedAt = DateTime.Parse(row["created_at"].ToString());
-                    record.CreatedByUserUid = Guid.Parse(row["created_by_user_uid"].ToString());
-                    record.UpdatedAt = DateTime.Parse(row["updated_at"].ToString());
-                    record.UpdatedByUserUid = Guid.Parse(row["updated_by_user_uid"].ToString());
-
-                    records.Add(record);
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Test");
-            }
-
-            conn.Close();
-
-            return records;
         }
     }
 }
