@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WIF.PortfolioManager.Domain\WIF.PortfolioManager.Domain.csproj" />
-    <ProjectReference Include="..\WIF.PortfolioManager.Identity\WIF.PortfolioManager.Identity.csproj" />
+    <ProjectReference Include="..\WIF.PortfolioManager.Identity\WIF.Common.Identity.csproj" />
 	  <ProjectReference Include="..\WIF.PortfolioManager.Persistence\WIF.PortfolioManager.Persistence.csproj" />
   </ItemGroup>
 

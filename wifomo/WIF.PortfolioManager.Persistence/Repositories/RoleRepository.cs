@@ -13,7 +13,7 @@ namespace WIF.PortfolioManager.Persistence.Repositories
 {
     public class RoleRepository : RepositoryBase<int, ApplicationRole>
     {
-        public RoleRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public RoleRepository(ApplicationPersistenceDbContext dbContext) : base(dbContext)
         {
             // do somethign here...
         }

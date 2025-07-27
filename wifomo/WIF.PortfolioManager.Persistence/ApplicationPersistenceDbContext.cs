@@ -7,9 +7,9 @@ using WIF.PortfolioManager.Persistence.Configurations.Entities;
 
 namespace WIF.PortfolioManager.Persistence
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationPersistenceDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationPersistenceDbContext(DbContextOptions<ApplicationPersistenceDbContext> options)
             : base(options)
         {
         }

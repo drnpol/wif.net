@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using WIF.PortfolioManager.Domain.Enums;
 
-namespace WIF.PortfolioManager.Identity.Models
+namespace WIF.Common.Identity.Models
 {
-    public class ApplicationRole : IdentityRole
+    public class ApplicationRole : IdentityRole<string>
     {
+        
     }
 }

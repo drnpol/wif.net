@@ -5,21 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WIF.Common.Identity.Models;
 
-namespace WIF.PortfolioManager.Identity.Configurations
+namespace WIF.Common.Identity.Configurations
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
+    public class RoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
     {
-        public void Configure(EntityTypeBuilder<IdentityRole> builder)
+        public void Configure(EntityTypeBuilder<ApplicationRole> builder)
         {
             builder.HasData(
-                new IdentityRole
+                new ApplicationRole
                 {
                     Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                    Name = "Employee",
-                    NormalizedName = "EMPLOYEE"
+                    Name = "User",
+                    NormalizedName = "USER"
                 },
-                new IdentityRole
+                new ApplicationRole
                 {
                     Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
                     Name = "Administrator",

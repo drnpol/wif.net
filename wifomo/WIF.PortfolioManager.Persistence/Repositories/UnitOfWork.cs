@@ -40,8 +40,8 @@ namespace WIF.PortfolioManager.Persistence.Repositories
             }
         }
 
-        private readonly ApplicationDbContext dbContext;
-        public UnitOfWork(ApplicationDbContext dbContext)
+        private readonly ApplicationPersistenceDbContext dbContext;
+        public UnitOfWork(ApplicationPersistenceDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

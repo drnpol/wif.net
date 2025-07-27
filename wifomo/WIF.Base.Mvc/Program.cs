@@ -20,7 +20,7 @@ namespace WIF.Base.Mvc
             builder.Services.AddControllersWithViews();
 
             // Add Entity Framework services to the container.
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            builder.Services.AddDbContext<ApplicationPersistenceDbContext>(options =>
                 options
                     .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
                     .ConfigureWarnings(b => b.Log(CoreEventId.ManyServiceProvidersCreatedWarning))
@@ -29,7 +29,7 @@ namespace WIF.Base.Mvc
             builder.Services
             .AddIdentityCore<ApplicationUser>()
             .AddRoles<ApplicationRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddEntityFrameworkStores<ApplicationPersistenceDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();
 

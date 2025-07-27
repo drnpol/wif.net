@@ -15,11 +15,11 @@ namespace WIF.Base.Mvc.Controllers
     [Authorize]
     public class ImportController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationPersistenceDbContext _context;
         private readonly BBWalletImportService _bbWalletImportService;
 
         public ImportController(
-            ApplicationDbContext context,
+            ApplicationPersistenceDbContext context,
             BBWalletImportService bbWalletImportService
         )
         {

@@ -15,9 +15,9 @@ namespace WIF.PortfolioManager.Persistence
     {
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationPersistenceDbContext>(options =>
                options.UseNpgsql(
-                   configuration.GetConnectionString("DefaultConnectionString")));
+                   configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<UnitOfWork>();
             services.AddScoped<BBWalletImportRepository>();

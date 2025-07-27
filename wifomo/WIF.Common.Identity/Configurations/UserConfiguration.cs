@@ -1,4 +1,4 @@
-﻿using WIF.PortfolioManager.Identity.Models;
+﻿using WIF.Common.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WIF.PortfolioManager.Identity.Configurations
+namespace WIF.Common.Identity.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

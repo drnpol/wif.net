@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.PortfolioManager.Domain
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{3BD6E801-6F76-422E-BC3D-2C8A979E245E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.PortfolioManager.Identity", "WIF.PortfolioManager.Identity\WIF.PortfolioManager.Identity.csproj", "{F4F3B875-151F-4796-8F7A-76633666C1DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.Common.Identity", "WIF.PortfolioManager.Identity\WIF.Common.Identity.csproj", "{F4F3B875-151F-4796-8F7A-76633666C1DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIF.PortfolioManager.Persistence", "WIF.PortfolioManager.Persistence\WIF.PortfolioManager.Persistence.csproj", "{BA4C1764-6EAE-47D3-ACC6-F22989035ECF}"
 EndProject

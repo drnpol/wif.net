@@ -14,7 +14,7 @@ namespace WIF.PortfolioManager.Persistence.Repositories
 {
     public class BBWalletImportRepository : RepositoryBase<Guid, BBWalletImport>
     {
-        public BBWalletImportRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public BBWalletImportRepository(ApplicationPersistenceDbContext dbContext) : base(dbContext)
         {
             // do something here...
         }

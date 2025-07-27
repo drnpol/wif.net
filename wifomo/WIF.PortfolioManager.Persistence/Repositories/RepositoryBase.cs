@@ -14,8 +14,8 @@ namespace WIF.PortfolioManager.Persistence.Repositories
 {
     public abstract class RepositoryBase<K>
     {
-        protected readonly ApplicationDbContext db;
-        public RepositoryBase(ApplicationDbContext dbContext)
+        protected readonly ApplicationPersistenceDbContext db;
+        public RepositoryBase(ApplicationPersistenceDbContext dbContext)
         {
             this.db = dbContext;
         }
@@ -25,9 +25,9 @@ namespace WIF.PortfolioManager.Persistence.Repositories
     {
         private readonly DbSet<TEntity> dbSet;
 
-        public ApplicationDbContext DbContext { get; }
+        public ApplicationPersistenceDbContext DbContext { get; }
 
-        public RepositoryBase(ApplicationDbContext dbContext) : base(dbContext)
+        public RepositoryBase(ApplicationPersistenceDbContext dbContext) : base(dbContext)
         {
             this.dbSet = dbContext.Set<TEntity>();
         }

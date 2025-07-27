@@ -12,7 +12,7 @@ namespace WIF.PortfolioManager.Persistence.Repositories
 {
     public class UserRepository : RepositoryBase<Guid, ApplicationUser>
     {
-        public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public UserRepository(ApplicationPersistenceDbContext dbContext) : base(dbContext)
         {
             // do something here...
         }

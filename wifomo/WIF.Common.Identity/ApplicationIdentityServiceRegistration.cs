@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WIF.PortfolioManager.Identity.Models;
+using WIF.Common.Identity.Models;
 
-namespace WIF.PortfolioManager.Identity
+namespace WIF.Common.Identity
 {
-    public static class IdentityServiceRegistration
+    public static class ApplicationIdentityServiceRegistration
     {
         public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
             //services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
-            services.AddDbContext<PortfolioManagerIdentityDBContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnectionString"),
-                b => b.MigrationsAssembly(typeof(PortfolioManagerIdentityDBContext).Assembly.FullName)));
+            services.AddDbContext<ApplicationIdentityDBContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsAssembly(typeof(ApplicationIdentityDBContext).Assembly.FullName)));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<PortfolioManagerIdentityDBContext>().AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationIdentityDBContext>().AddDefaultTokenProviders();
 
             //services.AddTransient<IAuthService, AuthService>();
             //services.AddTransient<IUserService, UserService>();

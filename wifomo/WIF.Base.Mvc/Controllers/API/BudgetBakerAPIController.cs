@@ -9,11 +9,11 @@ namespace WIF.Base.Mvc.Controllers.API
     [Route("api/import/budgetbaker")]
     public class BudgetBakerAPIController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationPersistenceDbContext _context;
         private readonly BBWalletImportService _bbWalletImportService;
 
         public BudgetBakerAPIController(
-            ApplicationDbContext context,
+            ApplicationPersistenceDbContext context,
             BBWalletImportService bbWalletImportService
         )
         {
