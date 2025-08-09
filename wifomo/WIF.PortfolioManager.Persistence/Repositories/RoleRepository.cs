@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WIF.PortfolioManager.Persistence;
-using WIF.PortfolioManager.Identity.Models;
+using WIF.Common.Identity.Models;
 using WIF.PortfolioManager.Domain.Enums;
 using WIF.PortfolioManager.Domain.Models;
 
 namespace WIF.PortfolioManager.Persistence.Repositories
 {
-    public class RoleRepository : RepositoryBase<int, ApplicationRole>
+    public class RoleRepository : RepositoryBase<Guid, ApplicationRole>
     {
         public RoleRepository(ApplicationPersistenceDbContext dbContext) : base(dbContext)
         {

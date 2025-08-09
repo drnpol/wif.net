@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using WIF.PortfolioManager.Identity;
+using WIF.Common.Identity;
 
 
 namespace WIF.PortfolioManager.Persistence

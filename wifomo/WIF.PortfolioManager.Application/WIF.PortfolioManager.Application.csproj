@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\BBWalletImport\Handlers\" />
+    <Folder Include="Features\BBWalletImport\Requests\" />
+    <Folder Include="Features\Datatables\Handlers\" />
+    <Folder Include="Features\Kendo\Handlers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WIF.PortfolioManager.Domain\WIF.PortfolioManager.Domain.csproj" />
+    <ProjectReference Include="..\WIF.Common.Identity\WIF.Common.Identity.csproj" />
+	  <ProjectReference Include="..\WIF.PortfolioManager.Persistence\WIF.PortfolioManager.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

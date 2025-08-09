@@ -13,16 +13,16 @@ namespace WIF.Common.Identity
 {
     public static class ApplicationIdentityServiceRegistration
     {
-        public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
             //services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
-            services.AddDbContext<ApplicationIdentityDBContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly(typeof(ApplicationIdentityDBContext).Assembly.FullName)));
+            //services.AddDbContext<ApplicationIdentityDBContext>(options =>
+            //    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+            //    b => b.MigrationsAssembly(typeof(ApplicationIdentityDBContext).Assembly.FullName)));
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<ApplicationIdentityDBContext>().AddDefaultTokenProviders();
+            //services.AddIdentity<ApplicationUser, ApplicationRole>()
+            //    .AddEntityFrameworkStores<ApplicationIdentityDBContext>().AddDefaultTokenProviders();
 
             //services.AddTransient<IAuthService, AuthService>();
             //services.AddTransient<IUserService, UserService>();

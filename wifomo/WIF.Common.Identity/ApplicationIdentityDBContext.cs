@@ -19,21 +19,36 @@ namespace WIF.Common.Identity
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+
+        //    modelBuilder.Entity<ApplicationUser>().ToTable("wif_users");
+        //    modelBuilder.Entity<ApplicationRole>().ToTable("wif_roles");
+        //    modelBuilder.Entity<IdentityUserRole<string>>().ToTable("wif_user_roles");
+        //    modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("wif_user_claims");
+        //    modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("wif_user_logins");
+        //    modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("wif_role_claims");
+        //    modelBuilder.Entity<IdentityUserToken<string>>().ToTable("wif_user_tokens");
+
+        //    modelBuilder.ApplyConfiguration(new UserConfiguration());
+        //    modelBuilder.ApplyConfiguration(new RoleConfiguration());
+        //    modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+        //}
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
 
-            modelBuilder.Entity<ApplicationUser>().ToTable("wif_users");
-            modelBuilder.Entity<ApplicationRole>().ToTable("wif_roles");
-            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("wif_user_roles");
-            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("wif_user_claims");
-            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("wif_user_logins");
-            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("wif_role_claims");
-            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("wif_user_tokens");
+            builder.Entity<ApplicationUser>().ToTable("wif_users");
+            builder.Entity<ApplicationRole>().ToTable("wif_roles");
 
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
-            modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+            builder.Entity<IdentityUserRole<string>>().ToTable("wif_user_roles");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("wif_user_claims");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("wif_user_logins");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("wif_role_claims");
+            builder.Entity<IdentityUserToken<string>>().ToTable("wif_user_tokens");
+
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationIdentityDBContext).Assembly);
         }
     }
 }

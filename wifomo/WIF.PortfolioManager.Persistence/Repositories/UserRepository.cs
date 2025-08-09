@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WIF.PortfolioManager.Domain.Enums;
 using WIF.PortfolioManager.Domain.Models;
-using WIF.PortfolioManager.Identity.Models;
+using WIF.Common.Identity.Models;
 
 namespace WIF.PortfolioManager.Persistence.Repositories
 {

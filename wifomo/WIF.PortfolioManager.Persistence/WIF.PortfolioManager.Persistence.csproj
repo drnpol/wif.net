@@ -18,8 +18,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\WIF.Common.Identity\WIF.Common.Identity.csproj" />
 	  <ProjectReference Include="..\WIF.PortfolioManager.Domain\WIF.PortfolioManager.Domain.csproj" />
-	  <ProjectReference Include="..\WIF.PortfolioManager.Identity\WIF.Common.Identity.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>
