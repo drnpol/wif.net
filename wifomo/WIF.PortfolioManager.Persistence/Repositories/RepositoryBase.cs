@@ -42,13 +42,13 @@ namespace WIF.PortfolioManager.Persistence.Repositories
             return this.dbSet.CountAsync();
         }
 
-        public void Update(TEntity entity)
+        public EntityEntry<TEntity> Update(TEntity entity)
         {
-            this.dbSet.Update(entity);
+            return this.dbSet.Update(entity);
         }
-        public void Delete(TEntity entity)
+        public EntityEntry<TEntity> Remove(TEntity entity)
         {
-            this.dbSet.Remove(entity);
+            return this.dbSet.Remove(entity);
         }
         public void DeleteRange(IEnumerable<TEntity> entities)
         {

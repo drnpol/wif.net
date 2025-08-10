@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.20" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.20" />
 		
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.20">
@@ -27,5 +28,12 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<DependentUpon>appsettings.json</DependentUpon>
 		</Content>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Enums\" />
+	  <Folder Include="Interfaces\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\WIF.PortfolioManager.Application\WIF.PortfolioManager.Application.csproj" />
 	</ItemGroup>
 </Project>

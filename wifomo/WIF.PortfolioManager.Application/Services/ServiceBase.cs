@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WIF.PortfolioManager.Persistence;
-using WIF.PortfolioManager.Persistence.Repositories;
+using WIF.PortfolioManager.Application.Contracts.Persistence;
 
 namespace WIF.PortfolioManager.Application.Services
 {
     public class ServiceBase
     {
-        protected readonly UnitOfWork unitOfWork;
-        public ServiceBase( UnitOfWork unitOfWork)
+        protected readonly IUnitOfWork unitOfWork;
+        public ServiceBase(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }

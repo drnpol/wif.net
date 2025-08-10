@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Account\Handlers\" />
+    <Folder Include="Features\Account\Requests\" />
+    <Folder Include="Features\Authentication\Handlers\" />
     <Folder Include="Features\BBWalletImport\Handlers\" />
     <Folder Include="Features\BBWalletImport\Requests\" />
     <Folder Include="Features\Datatables\Handlers\" />
@@ -14,9 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="7.6.105" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WIF.PortfolioManager.Domain\WIF.PortfolioManager.Domain.csproj" />
-    <ProjectReference Include="..\WIF.Common.Identity\WIF.Common.Identity.csproj" />
-	  <ProjectReference Include="..\WIF.PortfolioManager.Persistence\WIF.PortfolioManager.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
