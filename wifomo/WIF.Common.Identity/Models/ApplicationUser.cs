@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using WIF.PortfolioManager.Application.Contracts.Identity;
 
 namespace WIF.Common.Identity.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser, IApplicationUser<string>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

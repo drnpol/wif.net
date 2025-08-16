@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WIF.PortfolioManager.Application.Contracts.Identity;
 
 namespace WIF.PortfolioManager.API.Controllers
 {

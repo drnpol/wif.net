@@ -12,5 +12,9 @@ namespace WIF.PortfolioManager.Application.Contracts.Identity
     {
         Task<AuthResponse> Login(AuthRequest request);
         Task<RegistrationResponse> Register(RegistrationRequest request);
+        Task Logout();
+        Task ConfirmEmail(ConfirmEmailRequest request);
+        Task ForgotPassword(string email);
+        Task ResetPassword(ResetPasswordRequest request);
     }
 }

@@ -8,6 +8,7 @@ namespace WIF.PortfolioManager.Application.Contracts.Persistence
 {
     public interface IUnitOfWork
     {
+        IUserRepository UserRepository{ get; }
         IAccountRepository AccountRepository { get; }
         Task SaveChanges();
     }

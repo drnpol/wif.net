@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using WIF.Common.Identity.Models;
 using WIF.Common.Identity;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using WIF.PortfolioManager.API.Middlewares;
 
 namespace WIF.PortfolioManager.API
 {
@@ -14,12 +16,26 @@ namespace WIF.PortfolioManager.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<ExceptionMiddleware>();
+            builder.Services.AddScoped<AuthenticationMiddleware>();
 
             // Add Entity Framework services to the container.
             builder.Services.AddIdentityServices(builder.Configuration);
-
             builder.Services.AddControllers();
 
+            //if (!builder.Environment.IsDevelopment()) // just added for fun HAHA
+            //{
+            //    builder.Services.Configure<ApiBehaviorOptions>(options =>
+            //    {
+            //        options.SuppressConsumesConstraintForFormFileParameters = true;
+            //        options.SuppressInferBindingSourcesForParameters = true;
+            //        options.SuppressModelStateInvalidFilter = true; // automatic error messages when request body is invalid
+            //        options.SuppressMapClientErrors = true;
+            //        options.ClientErrorMapping[StatusCodes.Status404NotFound].Link =
+            //            "https://httpstatuses.com/404";
+            //    });
+            //}
+            
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("all", builder => builder.AllowAnyOrigin()
@@ -42,8 +58,10 @@ namespace WIF.PortfolioManager.API
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
+
+            // custom middlewares
+            app.UseMiddleware<ExceptionMiddleware>();
 
 
             app.MapControllers();
